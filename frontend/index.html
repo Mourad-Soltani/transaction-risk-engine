@@ -1,0 +1,52 @@
+<!doctype html>
+<!-- Author: Mourad.Soltani -->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Transaction Risk Assessment Engine — Mourad.Soltani</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>Transaction Risk Assessment Engine</h1>
+    <p class="author">Mourad.Soltani · v1.0.0 · deterministic AML/CFT scoring</p>
+  </header>
+  <main>
+    <section>
+      <h2>Assess a transaction</h2>
+      <label for="assess-payload">Payload (JSON)</label>
+      <textarea id="assess-payload" rows="16">{
+  "transaction": {
+    "id": "T1",
+    "amount": 9500,
+    "currency": "USD",
+    "timestamp": 1000000,
+    "direction": "debit",
+    "country": "US",
+    "counterparty": "Acme Corp"
+  },
+  "history": [
+    { "id": "H1", "amount": 9200, "timestamp": 999000, "direction": "credit" },
+    { "id": "H2", "amount": 9300, "timestamp": 998000, "direction": "credit" }
+  ],
+  "watchlist": ["Acme Corporation"]
+}</textarea>
+      <button id="assess-btn" type="button">Assess</button>
+      <pre id="assess-out" aria-live="polite"></pre>
+    </section>
+
+    <section>
+      <h2>Screen a name</h2>
+      <label for="screen-payload">Payload (JSON)</label>
+      <textarea id="screen-payload" rows="8">{
+  "name": "Acme Corporation",
+  "watchlist": ["Acme Corp", "Globex", "Initech"]
+}</textarea>
+      <button id="screen-btn" type="button">Screen</button>
+      <pre id="screen-out" aria-live="polite"></pre>
+    </section>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>

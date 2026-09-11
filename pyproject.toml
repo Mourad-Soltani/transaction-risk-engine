@@ -1,0 +1,24 @@
+# Author: Mourad.Soltani
+
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "transaction-risk-engine"
+version = "1.0.0"
+description = "Deterministic AML/CFT transaction risk scoring with explainable alerts."
+authors = [{ name = "Mourad.Soltani" }]
+license = "MIT"
+requires-python = ">=3.12"
+dependencies = [
+  "Flask==3.0.3",
+  "gunicorn==22.0.0",
+]
+
+[tool.setuptools]
+packages = ["backend"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-v"
